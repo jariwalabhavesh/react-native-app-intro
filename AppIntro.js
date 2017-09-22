@@ -343,6 +343,8 @@ export default class AppIntro extends Component {
           loop={false}
           index={this.props.defaultIndex}
           renderPagination={this.renderPagination}
+          loadMinimal={true}
+          loadMinimalSize={1}
           onMomentumScrollEnd={(e, state) => {
             if (this.isToTintStatusBar()) {
               StatusBar.setBackgroundColor(this.shadeStatusBarColor(this.props.pageArray[state.index].backgroundColor, -0.3), false);
