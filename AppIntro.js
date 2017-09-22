@@ -43,7 +43,7 @@ const defaulStyles = {
   },
   title: {
     color: '#fff',
-    fontSize: 30,
+    fontSize: 25,
     paddingBottom: 20,
   },
   description: {
@@ -52,13 +52,13 @@ const defaulStyles = {
   },
   controllText: {
     color: '#fff',
-    fontSize: 22,
+    fontSize: 18,
     fontWeight: 'bold',
   },
   dotStyle: {
     backgroundColor: 'rgba(255,255,255,.3)',
-    width: 13,
-    height: 13,
+    width: 11,
+    height: 11,
     borderRadius: 7,
     marginLeft: 7,
     marginRight: 7,
@@ -70,7 +70,7 @@ const defaulStyles = {
   },
   paginationContainer: {
     position: 'absolute',
-    bottom: 25,
+    bottom: 15,
     left: 0,
     right: 0,
     flexDirection: 'row',
@@ -89,10 +89,10 @@ const defaulStyles = {
     flex: 0.2,
     justifyContent: 'center',
     alignItems: 'center',
-    height: 50,
+    height: 20,
   },
   nextButtonText: {
-    fontSize: 25,
+    fontSize: 20,
     fontWeight: 'bold',
     fontFamily: 'Arial',
   },
