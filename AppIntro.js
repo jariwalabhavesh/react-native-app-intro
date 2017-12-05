@@ -121,7 +121,8 @@ export default class AppIntro extends Component {
   onNextBtnClick = (context) => {
     if (context.state.isScrolling || context.state.total < 2) return;
     const state = context.state;
-    const diff = (context.props.loop ? 1 : 0) + 1 + context.state.index;
+    let actualIndex=Math.ceil(context.state.index);
+    const diff = (context.props.loop ? 1 : 0) + 1 + actualIndex;
     let x = 0;
     if (state.dir === 'x') x = diff * state.width;
     if (Platform.OS === 'ios') {
@@ -134,7 +135,7 @@ export default class AppIntro extends Component {
         },
       });
     }
-    this.props.onNextBtnClick(context.state.index);
+    this.props.onNextBtnClick(actualIndex);
   }
 
   setDoneBtnOpacity = (value) => {
@@ -189,7 +190,8 @@ export default class AppIntro extends Component {
   renderPagination = (index, total, context) => {
     let isDoneBtnShow;
     let isSkipBtnShow;
-    if (index === total - 1) {
+    let actualIndex=Math.ceil(index);
+    if (actualIndex === total - 1) {
       this.setDoneBtnOpacity(1);
       this.setSkipBtnOpacity(0);
       this.setNextOpacity(0);
@@ -209,10 +211,10 @@ export default class AppIntro extends Component {
           {...this.state}
           isSkipBtnShow={isSkipBtnShow}
           styles={this.styles}
-          onSkipBtnClick={() => this.props.onSkipBtnClick(index)} /> :
+          onSkipBtnClick={() => this.props.onSkipBtnClick(actualIndex)} /> :
           <View style={this.styles.btnContainer} />
         }
-        {this.props.showDots && RenderDots(index, total, {
+        {this.props.showDots && RenderDots(actualIndex, total, {
           ...this.props,
           styles: this.styles
         })}
