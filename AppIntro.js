@@ -57,11 +57,11 @@ const defaulStyles = {
   },
   dotStyle: {
     backgroundColor: 'rgba(255,255,255,.3)',
-    width: 11,
-    height: 11,
+    width: 7,
+    height: 7,
     borderRadius: 7,
-    marginLeft: 7,
-    marginRight: 7,
+    marginLeft: 5,
+    marginRight: 5,
     marginTop: 7,
     marginBottom: 7,
   },
@@ -121,7 +121,7 @@ export default class AppIntro extends Component {
   onNextBtnClick = (context) => {
     if (context.state.isScrolling || context.state.total < 2) return;
     const state = context.state;
-    let actualIndex=Math.ceil(context.state.index);
+    let actualIndex = Math.ceil(context.state.index);
     const diff = (context.props.loop ? 1 : 0) + 1 + actualIndex;
     let x = 0;
     if (state.dir === 'x') x = diff * state.width;
@@ -190,7 +190,7 @@ export default class AppIntro extends Component {
   renderPagination = (index, total, context) => {
     let isDoneBtnShow;
     let isSkipBtnShow;
-    let actualIndex=Math.ceil(index);
+    let actualIndex = Math.ceil(index);
     if (actualIndex === total - 1) {
       this.setDoneBtnOpacity(1);
       this.setSkipBtnOpacity(0);
@@ -219,14 +219,14 @@ export default class AppIntro extends Component {
           styles: this.styles
         })}
         {this.props.showDoneButton ? <DoneButton
-            {...this.props}
-            {...this.state}
-            isDoneBtnShow={isDoneBtnShow}
-            styles={this.styles}
-            onNextBtnClick={this.onNextBtnClick.bind(this, context)}
-            onDoneBtnClick={this.props.onDoneBtnClick} /> :
-            <View style={this.styles.btnContainer} />
-          }
+          {...this.props}
+          {...this.state}
+          isDoneBtnShow={isDoneBtnShow}
+          styles={this.styles}
+          onNextBtnClick={this.onNextBtnClick.bind(this, context)}
+          onDoneBtnClick={this.props.onDoneBtnClick} /> :
+          <View style={this.styles.btnContainer} />
+        }
       </View>
     );
   }
@@ -243,7 +243,7 @@ export default class AppIntro extends Component {
     const AnimatedStyle1 = this.getTransform(index, 10, level);
     const AnimatedStyle2 = this.getTransform(index, 0, level);
     const AnimatedStyle3 = this.getTransform(index, 15, level);
-    const imgSource = (typeof img === 'string') ? {uri: img} : img;
+    const imgSource = (typeof img === 'string') ? { uri: img } : img;
     const pageView = (
       <View style={[this.styles.slide, { backgroundColor }]} showsPagination={false} key={index}>
         <Animated.View style={[this.styles.header, ...AnimatedStyle1.transform]}>
@@ -400,10 +400,10 @@ AppIntro.defaultProps = {
   rightTextColor: '#fff',
   leftTextColor: '#fff',
   pageArray: [],
-  onSlideChange: () => {},
-  onSkipBtnClick: () => {},
-  onDoneBtnClick: () => {},
-  onNextBtnClick: () => {},
+  onSlideChange: () => { },
+  onSkipBtnClick: () => { },
+  onDoneBtnClick: () => { },
+  onNextBtnClick: () => { },
   doneBtnLabel: 'Done',
   skipBtnLabel: 'Skip',
   nextBtnLabel: '›',
